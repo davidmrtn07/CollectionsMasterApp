@@ -14,18 +14,22 @@ namespace CollectionsMasterConsoleUI
 
             #region Arrays
             //TODO: Create an integer Array of size 50
+            var numbers = new int[50];
 
 
             //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
+            Populater(numbers);
 
 
             //TODO: Print the first number of the array
+            Console.WriteLine($"{numbers[0]}");
 
             //TODO: Print the last number of the array            
+            Console.WriteLine($"{numbers[numbers.Length - 1]}");
 
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
-            //NumberPrinter();
+            NumberPrinter(numbers);
             Console.WriteLine("-------------------");
 
             //TODO: Reverse the contents of the array and then print the array out to the console.
@@ -35,6 +39,7 @@ namespace CollectionsMasterConsoleUI
             */
 
             Console.WriteLine("All Numbers Reversed:");
+            ReverseArray(numbers);
 
             Console.WriteLine("---------REVERSE CUSTOM------------");
 
@@ -42,6 +47,7 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
             Console.WriteLine("Multiple of three = 0: ");
+            ThreeKiller(numbers);
 
 
             Console.WriteLine("-------------------");
@@ -49,36 +55,33 @@ namespace CollectionsMasterConsoleUI
             //TODO: Sort the array in order now
             /*      Hint: Array.____()      */
             Console.WriteLine("Sorted numbers:");
+            Array.Sort(numbers);
+            NumberPrinter(numbers);
 
 
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
-            var numbers = new int[50];
-            Populater(numbers);
-            Console.WriteLine($"{numbers[0]}");
-            Console.WriteLine($"{numbers[numbers.Length - 1]}");
-            NumberPrinter(numbers);
-            ReverseArray(numbers);
-            ThreeKiller(numbers);
+            
 
-            //sort the array in order
-            Array.Sort(numbers);
-            NumberPrinter(numbers);
-
+           
             #region Lists
             Console.WriteLine("************Start Lists**************");
 
             /*   Set Up   */
             //TODO: Create an integer List
+            var numList = new List<int>();
 
 
             //TODO: Print the capacity of the list to the console
 
+            Console.WriteLine($"{numList.Capacity}");
 
             //TODO: Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
 
+            Populater(numList);
 
             //TODO: Print the new capacity
+            Console.WriteLine($"New Capacity: {numList.Capacity}");
 
 
             Console.WriteLine("---------------------");
@@ -86,40 +89,6 @@ namespace CollectionsMasterConsoleUI
             //TODO: Create a method that prints if a user number is present in the list
             //Remember: What if the user types "abc" accident your app should handle that!
             Console.WriteLine("What number will you search for in the number list?");
-
-            Console.WriteLine("-------------------");
-
-            Console.WriteLine("All Numbers:");
-            //UNCOMMENT this method to print out your numbers from arrays or lists
-            //NumberPrinter();
-            Console.WriteLine("-------------------");
-
-
-            //TODO: Create a method that will remove all odd numbers from the list then print results
-            Console.WriteLine("Evens Only!!");
-
-            Console.WriteLine("------------------");
-
-            //TODO: Sort the list then print results
-            Console.WriteLine("Sorted Evens!!");
-
-            Console.WriteLine("------------------");
-
-            //TODO: Convert the list to an array and store that into a variable
-
-
-            //TODO: Clear the list
-
-
-            #endregion
-            var numList = new List<int>();
-            //print capacity of list to console
-            Console.WriteLine($"{numList.Capacity}");
-            //Populate list with 50 random numbers between 0 and 50
-            Populater(numList);
-            //Print new capacity
-            Console.WriteLine($"New Capacity: {numList.Capacity}");
-
             int userNumber;
             bool isANumber;
 
@@ -130,19 +99,44 @@ namespace CollectionsMasterConsoleUI
             }
             while (isANumber == false);
 
-            Console.WriteLine("All Numbers:");
-            NumberPrinter(numList);
+            Console.WriteLine("-------------------");
 
-            //Create method that removes odds from list
+            Console.WriteLine("All Numbers:");
+            //UNCOMMENT this method to print out your numbers from arrays or lists
+            NumberPrinter(numList);
+            Console.WriteLine("-------------------");
+
+
+            //TODO: Create a method that will remove all odd numbers from the list then print results
+            Console.WriteLine("Evens Only!!");
             OddKiller(numList);
-            //sort the list then print results
-            Console.WriteLine("Sorted Odds!!");
+
+            Console.WriteLine("------------------");
+
+            //TODO: Sort the list then print results
+            Console.WriteLine("Sorted Evens!!");
             numList.Sort();
             NumberPrinter(numList);
-            //Convert list to an array and store into variable
+
+            Console.WriteLine("------------------");
+
+            //TODO: Convert the list to an array and store that into a variable
             var myArray = numList.ToArray();
-            //Clear the list
+
+
+            //TODO: Clear the list
             numList.Clear();
+
+
+            #endregion
+            
+
+
+            
+            //sort the list then print results
+            Console.WriteLine("Sorted Odds!!");
+            //Convert list to an array and store into variable
+            //Clear the list
 
         }
 
